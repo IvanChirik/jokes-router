@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Redirect, Route } from 'react-router-dom';
+import AddJoke from './pages/AddJoke';
+import JokeDetails from './pages/JokeDetails';
+import Jokes from './pages/Jokes';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <div>
+    <Route path='/' exact>
+      <Redirect to='jokes' />
+    </Route>
+    <Route path='/jokes' exact>
+      <Jokes />
+    </Route>
+    <Route path='/jokes/:jokeId'>
+      <JokeDetails />
+    </Route>
+    <Route path='/add-joke'>
+      <AddJoke />
+    </Route>
+  </div>;
 }
 
 export default App;
