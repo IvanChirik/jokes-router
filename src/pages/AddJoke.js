@@ -1,10 +1,12 @@
 import React from 'react';
+import JokeForm from '../components/jokes/JokeForm.js'
 
 const AddJoke = () => {
+    const addJokeToJokes = (jokeData) => {
+        console.log(jokeData);
+    }
     return (
-        <div>
-            <h1>Add Joke</h1>
-        </div>
+        <JokeForm onAddJoke={addJokeToJokes} />
     );
 };
 
