@@ -21,8 +21,8 @@ const JokeDetails = () => {
     const currentJoke = DUMMY_JOKES.find(item => item.id === params.jokeId);
     return (
         <div>
-            <h1>Jokes Details</h1>
-            <HighlightedJoke text={currentJoke.text} topic={currentJoke.topic} />
+            {!currentJoke && <h1 className='centered'>Шутка не найдена</h1>}
+            {currentJoke && <HighlightedJoke text={currentJoke.text} topic={currentJoke.topic} />}
             <Route path='/jokes/:jokeId/comments'>
                 <Comments />
             </Route>
